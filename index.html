@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vitrina · Webs para bares y negocios de Málaga</title>
+<meta name="description" content="Webs profesionales para bares, restaurantes y peluquerías de Málaga: carta con precios, reservas por WhatsApp y ficha de Google. Lista en una semana, desde 150 €.">
+<meta name="theme-color" content="#101418">
+<meta property="og:title" content="Vitrina · Webs para bares y negocios de Málaga">
+<meta property="og:description" content="Tu negocio en Google, con carta y reservas por WhatsApp. Lista en una semana, desde 150 €.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101418'/%3E%3Crect x='14' y='18' width='36' height='28' rx='5' fill='none' stroke='%23c6f36b' stroke-width='5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f1ea; --paper:#fffdf8; --ink:#101418; --ink-2:#1b2229; --muted:#5d646b; --line:#e4dfd3;
+  --lime:#c6f36b; --lime-dk:#5f8a14; --coral:#ff6b4a; --sky:#7cc4ff;
+  --display:'Bricolage Grotesque',system-ui,sans-serif; --serif:'Instrument Serif',Georgia,serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:76px}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:1}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 12px Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--lime-dk)}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;border-radius:999px;font:600 15px Inter,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .2s var(--ease),filter .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:var(--ink)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-line{border:1.5px solid rgba(255,255,255,.3);color:#fff}
+.btn-wa{background:#25d366;color:#08301a}
+
+header.top{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s}
+header.top.solid{background:rgba(16,20,24,.9);backdrop-filter:blur(12px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:800 22px var(--display);letter-spacing:-.03em}
+.brand i{width:26px;height:20px;border:3.5px solid var(--lime);border-radius:6px;display:inline-block}
+.nav{display:flex;gap:26px;font-size:14px;color:rgba(255,255,255,.75)}
+.nav a{text-decoration:none}.nav a:hover{color:var(--lime)}
+header .btn{padding:10px 18px;font-size:14px}
+@media(max-width:860px){.nav,header .btn{display:none}}
+
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:120px 0 80px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 90% 10%,rgba(198,243,107,.18),transparent 70%),radial-gradient(40% 50% at 0% 100%,rgba(124,196,255,.15),transparent 70%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(46px,10vw,96px);font-weight:800;margin:18px 0 20px}
+.hero h1 em.s{color:var(--lime)}
+.lead{font-size:clamp(17px,4.3vw,20px);color:rgba(255,255,255,.78);max-width:540px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.ticks{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;font-size:14px;color:rgba(255,255,255,.7)}
+.ticks span::before{content:"✓ ";color:var(--lime);font-weight:700}
+
+/* phone mockup */
+.phones{position:relative;height:540px}
+@media(max-width:900px){.phones{height:440px;margin-top:10px}}
+.phone{position:absolute;width:230px;height:470px;border-radius:38px;background:#000;padding:10px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),inset 0 0 0 2px #2c333a;overflow:hidden}
+.phone iframe{width:390px;height:844px;border:0;border-radius:30px;transform:scale(.5795);transform-origin:0 0;pointer-events:none;background:#fff}
+.phone .notch{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:70px;height:18px;border-radius:12px;background:#000;z-index:2}
+.p1{left:8%;top:30px;transform:rotate(-6deg)}
+.p2{right:6%;top:0;transform:rotate(5deg)}
+@media(max-width:900px){.phone{width:190px;height:390px;border-radius:32px}.phone iframe{transform:scale(.4718)}.p1{left:2%}.p2{right:2%}}
+
+section{padding:96px 0}
+@media(max-width:600px){section{padding:72px 0}}
+h2{font-size:clamp(36px,7.5vw,64px);margin:14px 0 16px}
+h2 em.s{color:var(--lime-dk)}
+.sub{color:var(--muted);font-size:17px;max-width:600px}
+
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}
+.why div{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:26px}
+.why b{display:block;font:800 44px/1 var(--display);margin-bottom:10px}
+.why h3{font-size:22px;margin-bottom:6px}
+.why p{color:var(--muted);font-size:15px}
+
+.dark{background:var(--ink);color:#fff}
+.dark .sub{color:rgba(255,255,255,.7)}
+.dark .eyebrow{color:var(--lime)}
+.dark h2 em.s{color:var(--lime)}
+.demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:40px}
+.demo{background:var(--ink-2);border:1px solid rgba(255,255,255,.08);border-radius:26px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .3s var(--ease),border-color .3s}
+.demo:hover{transform:translateY(-6px);border-color:rgba(198,243,107,.5)}
+.demo .shot{height:300px;overflow:hidden;position:relative;background:#222}
+.demo .shot iframe{width:390px;height:844px;border:0;transform:scale(.72);transform-origin:0 0;pointer-events:none}
+@media(max-width:600px){.demo .shot iframe{transform:scale(.86)}}
+.demo .body{padding:18px 20px 20px}
+.demo .tag{font:600 11px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
+.demo h3{font-size:22px;margin:6px 0 4px}
+.demo p{color:rgba(255,255,255,.65);font-size:14px}
+.demo .go{margin-top:12px;font-weight:600;font-size:14px;color:var(--lime)}
+
+.incl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:36px}
+.incl>div{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.incl i{font-style:normal;font-size:24px;flex:none}
+.incl h3{font-size:18px;margin-bottom:2px}
+.incl p{color:var(--muted);font-size:14px}
+
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;align-items:stretch}
+@media(max-width:900px){.prices{grid-template-columns:1fr}}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:30px;display:flex;flex-direction:column}
+.plan.hot{background:var(--ink);color:#fff;border-color:var(--ink);position:relative}
+.plan.hot::after{content:"El más pedido";position:absolute;top:-12px;right:24px;background:var(--lime);color:var(--ink);font:700 12px Inter,sans-serif;padding:5px 12px;border-radius:999px}
+.plan h3{font-size:24px}
+.plan .pr{font:800 52px/1 var(--display);margin:16px 0 4px;letter-spacing:-.04em}
+.plan .pr small{font:500 16px Inter,sans-serif;letter-spacing:0;opacity:.7}
+.plan .note{font-size:13.5px;color:var(--muted)}
+.plan.hot .note{color:rgba(255,255,255,.6)}
+.plan ul{list-style:none;display:grid;gap:10px;margin:22px 0 26px;flex:1}
+.plan li{display:flex;gap:10px;font-size:15px}
+.plan li::before{content:"✓";color:var(--lime-dk);font-weight:800}
+.plan.hot li::before{color:var(--lime)}
+.offer{margin-top:22px;background:var(--lime);border-radius:22px;padding:20px 24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.offer b{font:700 20px var(--display)}
+
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.steps div{counter-increment:s;padding:24px;border-radius:22px;background:var(--paper);border:1px solid var(--line)}
+.steps div::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--ink);color:var(--lime);font:800 20px var(--display);margin-bottom:14px}
+.steps h3{font-size:20px;margin-bottom:6px}
+.steps p{color:var(--muted);font-size:14.5px}
+
+.faq{max-width:780px;margin-top:30px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font:700 18px var(--display);letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 26px/1 Inter,sans-serif;color:var(--lime-dk);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:10px}
+
+.contact{background:var(--ink);color:#fff;text-align:center;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;left:50%;top:100%;width:900px;height:900px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(198,243,107,.25),transparent 60%)}
+.contact .wrap{position:relative}
+.contact h2 em.s{color:var(--lime)}
+.contact .sub{color:rgba(255,255,255,.75);margin:0 auto}
+.contact .cta{justify-content:center}
+
+footer{background:#0b0e11;color:rgba(255,255,255,.6);padding:40px 0 30px;font-size:13.5px}
+footer .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+footer button{background:none;border:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;margin-right:12px}
+dialog{border:0;border-radius:22px;padding:0;max-width:620px;width:calc(100% - 28px)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+dialog .in{padding:28px;max-height:76vh;overflow:auto}
+dialog h3{font-size:26px;margin-bottom:12px}
+dialog p{color:var(--muted);margin-bottom:10px}
+dialog .close{display:flex;justify-content:flex-end;padding:14px 20px;border-top:1px solid var(--line)}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(16,20,24,.94);backdrop-filter:blur(12px)}
+.bar .btn{flex:1;padding:14px}
+@media(min-width:861px){.bar{display:none}body{padding-bottom:0}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top"><div class="wrap">
+  <a class="brand" href="#"><i></i>Vitrina</a>
+  <nav class="nav"><a href="#ejemplos">Ejemplos</a><a href="#incluye">Qué incluye</a><a href="#precios">Precios</a><a href="#faq">Preguntas</a></nav>
+  <a class="btn btn-lime js-wa" href="#contacto">Pide tu web</a>
+</div></header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--lime)">Webs para negocios de Málaga</span>
+      <h1>Tu bar, <em class="s">abierto</em><br>también en Google.</h1>
+      <p class="lead">Webs profesionales para bares, restaurantes y peluquerías: carta con precios, reservas por WhatsApp y todo lo que tus clientes buscan antes de venir. Lista en una semana.</p>
+      <div class="cta">
+        <a class="btn btn-lime js-wa" href="#contacto">💬 Pide tu web</a>
+        <a class="btn btn-line" href="#ejemplos">Ver ejemplos</a>
+      </div>
+      <div class="ticks"><span>Desde 150 €</span><span>Lista en 7 días</span><span>Hecha para el móvil</span><span>Sin permanencia</span></div>
+    </div>
+    <div class="phones" aria-hidden="true">
+      <div class="phone p1"><span class="notch"></span><iframe src="ejemplos/bar-de-tapas/" loading="lazy" tabindex="-1" title="Ejemplo"></iframe></div>
+      <div class="phone p2"><span class="notch"></span><iframe src="ejemplos/cafeteria/" loading="lazy" tabindex="-1" title="Ejemplo"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Por qué una web</span>
+    <h2>Tus clientes te buscan<br>en el <em class="s">móvil</em>.</h2>
+    <p class="sub">Antes de entrar a un bar, casi todo el mundo mira en Google: la carta, los precios, el horario y si se puede reservar. Si no lo encuentran, se van al de al lado.</p>
+    <div class="why">
+      <div class="rv"><b>📍</b><h3>Que te encuentren</h3><p>Una web enlazada a tu ficha de Google Maps, para que salgas cuando buscan tu nombre o "dónde comer cerca".</p></div>
+      <div class="rv"><b>🍽️</b><h3>Que vean tu carta</h3><p>Carta con precios, especialidades y fotos de tus platos. Lo que más mira la gente antes de decidirse.</p></div>
+      <div class="rv"><b>📅</b><h3>Que reserven solos</h3><p>Reservas que te llegan directamente por WhatsApp con el día, la hora y cuántos son. Sin apps ni comisiones.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="ejemplos">
+  <div class="wrap">
+    <span class="eyebrow">Ejemplos</span>
+    <h2>Así podría ser <em class="s">la tuya</em></h2>
+    <p class="sub">Cada web se diseña con el estilo de tu negocio. Ábrelas en tu móvil y pruébalas: son ejemplos ficticios.</p>
+    <div class="demos">
+      <a class="demo rv" href="ejemplos/bar-de-tapas/" target="_blank" rel="noopener"><div class="shot"><iframe src="ejemplos/bar-de-tapas/" loading="lazy" tabindex="-1" title="Bar de tapas"></iframe></div><div class="body"><span class="tag">Bar de tapas</span><h3>Taberna La Tapa</h3><p>Carta por pestañas, desayunos y reservas por WhatsApp.</p><div class="go">Ver ejemplo →</div></div></a>
+      <a class="demo rv" href="ejemplos/freiduria/" target="_blank" rel="noopener"><div class="shot"><iframe src="ejemplos/freiduria/" loading="lazy" tabindex="-1" title="Freiduría"></iframe></div><div class="body"><span class="tag">Freiduría</span><h3>Freiduría Mar Chica</h3><p>Estilo marinero, encargos para llevar y reservas por teléfono.</p><div class="go">Ver ejemplo →</div></div></a>
+      <a class="demo rv" href="ejemplos/comida-casera/" target="_blank" rel="noopener"><div class="shot"><iframe src="ejemplos/comida-casera/" loading="lazy" tabindex="-1" title="Comida casera"></iframe></div><div class="body"><span class="tag">Comida casera</span><h3>Casa Lola</h3><p>Sugerencias del día por WhatsApp y terraza.</p><div class="go">Ver ejemplo →</div></div></a>
+      <a class="demo rv" href="ejemplos/cafeteria/" target="_blank" rel="noopener"><div class="shot"><iframe src="ejemplos/cafeteria/" loading="lazy" tabindex="-1" title="Cafetería"></iframe></div><div class="body"><span class="tag">Cafetería</span><h3>El Madrugador</h3><p>Desayunos, menú del día y encargos de bocadillos.</p><div class="go">Ver ejemplo →</div></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="incluye">
+  <div class="wrap">
+    <span class="eyebrow">Qué incluye</span>
+    <h2>Todo lo que necesita<br>tu <em class="s">negocio</em></h2>
+    <div class="incl">
+      <div class="rv"><i>📱</i><div><h3>Diseño para el móvil</h3><p>Se ve perfecta en el móvil, que es desde donde te busca casi todo el mundo.</p></div></div>
+      <div class="rv"><i>🧾</i><div><h3>Carta con precios</h3><p>Por secciones, fácil de leer y de cambiar cuando subas un precio.</p></div></div>
+      <div class="rv"><i>💬</i><div><h3>Reservas por WhatsApp</h3><p>Te llega el mensaje con día, hora y personas. Tú confirmas.</p></div></div>
+      <div class="rv"><i>🕒</i><div><h3>Horario en directo</h3><p>Marca solo si estás abierto o cerrado en cada momento.</p></div></div>
+      <div class="rv"><i>🗺️</i><div><h3>Mapa y "Cómo llegar"</h3><p>Un toque y el cliente tiene la ruta hasta tu puerta.</p></div></div>
+      <div class="rv"><i>🔎</i><div><h3>Preparada para Google</h3><p>Con los datos que Google necesita y enlazada a tu ficha de Maps.</p></div></div>
+      <div class="rv"><i>🌐</i><div><h3>Tu propio dominio</h3><p>Una dirección con tu nombre, tipo tubar.es, a nombre de tu negocio.</p></div></div>
+      <div class="rv"><i>⚖️</i><div><h3>Parte legal</h3><p>Aviso legal, privacidad y aviso de cookies, como pide la ley.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="precios">
+  <div class="wrap">
+    <span class="eyebrow">Precios</span>
+    <h2>Claros y <em class="s">sin sorpresas</em></h2>
+    <p class="sub">Pagas la web una vez. El mantenimiento es opcional y puedes dejarlo cuando quieras.</p>
+    <div class="prices">
+      <div class="plan rv"><h3>Web</h3><div class="pr">150 €<small> pago único</small></div><p class="note">Precio de lanzamiento · + IVA</p>
+        <ul><li>Diseño a medida de tu negocio</li><li>Carta, horario, mapa y reservas</li><li>Parte legal y aviso de cookies</li><li>Publicada con tu dominio</li></ul>
+        <a class="btn btn-dark js-wa" href="#contacto">Quiero mi web</a></div>
+      <div class="plan hot rv"><h3>Mantenimiento básico</h3><div class="pr">30 €<small> /mes</small></div><p class="note">+ IVA · sin permanencia</p>
+        <ul><li>Cambios de carta y precios cuando quieras</li><li>Horarios de festivos y vacaciones</li><li>Fotos nuevas</li><li>Ficha de Google siempre al día</li><li>Dominio y alojamiento incluidos</li></ul>
+        <a class="btn btn-lime js-wa" href="#contacto">Lo quiero</a></div>
+      <div class="plan rv"><h3>Mantenimiento completo</h3><div class="pr">150 €<small> /mes</small></div><p class="note">+ IVA · sin permanencia</p>
+        <ul><li>Todo lo del básico</li><li>Redes sociales: 3–4 publicaciones a la semana</li><li>Respuesta a las reseñas de Google</li><li>Informe mensual de llamadas y reservas</li></ul>
+        <a class="btn btn-dark js-wa" href="#contacto">Hablemos</a></div>
+    </div>
+    <div class="offer rv"><b>🎁 Web a mitad de precio si contratas 12 meses de mantenimiento.</b><a class="btn btn-dark js-wa" href="#contacto">Me interesa</a></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">Cómo funciona</span>
+    <h2>Lista en <em class="s">una semana</em></h2>
+    <div class="steps">
+      <div class="rv"><h3>Hablamos</h3><p>Me cuentas cómo es tu negocio y qué necesitas. Sin compromiso.</p></div>
+      <div class="rv"><h3>Me pasas lo básico</h3><p>Fotos de la carta, del local y tu horario. Con el móvil vale.</p></div>
+      <div class="rv"><h3>Te la enseño</h3><p>En unos días te la mando para que la veas y me digas qué cambiar.</p></div>
+      <div class="rv"><h3>La publicamos</h3><p>Con tu dominio, enlazada a Google Maps y lista para recibir reservas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Preguntas frecuentes</span>
+    <h2>Lo que más <em class="s">me preguntan</em></h2>
+    <div class="faq">
+      <details><summary>¿Tengo que saber de ordenadores?</summary><p>No. Me pasas las fotos y la información por WhatsApp y yo me encargo de todo.</p></details>
+      <details><summary>¿Cuánto tarda?</summary><p>Normalmente una semana desde que me pasas la carta y las fotos.</p></details>
+      <details><summary>¿Y si quiero cambiar un precio o el horario?</summary><p>Con el mantenimiento me mandas un WhatsApp y lo cambio. Sin mantenimiento también puedo hacerlo, cobrando cada cambio.</p></details>
+      <details><summary>¿El dominio es mío?</summary><p>Sí. El dominio se registra a nombre de tu negocio. Si algún día dejas el mantenimiento, sigue siendo tuyo.</p></details>
+      <details><summary>¿Las reservas tienen comisión?</summary><p>No. Te llegan directamente a tu WhatsApp, sin apps intermedias ni comisiones por cliente.</p></details>
+      <details><summary>¿Hay permanencia?</summary><p>No. El mantenimiento es mes a mes y lo puedes dejar cuando quieras.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--lime)">Hablemos</span>
+    <h2>¿Le hacemos la web<br>a <em class="s">tu negocio</em>?</h2>
+    <p class="sub">Escríbeme por WhatsApp y te enseño un ejemplo hecho con el nombre de tu negocio, sin compromiso.</p>
+    <div class="cta"><a class="btn btn-wa js-wa" href="#contacto">💬 Escribir por WhatsApp</a><a class="btn btn-line js-tel" href="#contacto">📞 Llamar</a></div>
+    <p class="sub" style="margin-top:22px;font-size:14px" id="zona">📱 657 01 62 44 · Málaga y alrededores</p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><div class="row">
+  <span>© <span id="yr"></span> Vitrina · Webs para negocios de Málaga</span>
+  <div><button data-legal="aviso">Aviso legal</button><button data-legal="privacidad">Privacidad</button></div>
+</div></div></footer>
+
+<div class="bar"><a class="btn btn-wa js-wa" href="#contacto">💬 WhatsApp</a><a class="btn btn-lime" href="#ejemplos">Ver ejemplos</a></div>
+<dialog id="legal"><div class="in" id="legalbody"></div><div class="close"><button class="btn btn-dark" type="button" onclick="this.closest('dialog').close()">Cerrar</button></div></dialog>
+
+<script>
+/* ===== Datos de contacto: rellenar ===== */
+const CONTACT={
+  phone:'34657016244',
+  titular:'Jonatan Ramírez García', nif:'(en trámite)', email:'WhatsApp 657 01 62 44'
+};
+const msg=encodeURIComponent('Hola, me interesa una web para mi negocio.');
+if(CONTACT.phone){
+  document.querySelectorAll('.js-wa').forEach(a=>{a.href='https://wa.me/'+CONTACT.phone+'?text='+msg;a.target='_blank';a.rel='noopener'});
+  document.querySelectorAll('.js-tel').forEach(a=>a.href='tel:+'+CONTACT.phone);
+}
+document.getElementById('yr').textContent=new Date().getFullYear();
+const hdr=document.getElementById('top');const onS=()=>hdr.classList.toggle('solid',scrollY>40);addEventListener('scroll',onS,{passive:true});onS();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+const L={
+ aviso:`<h3>Aviso legal</h3><p>Este sitio web pertenece a ${CONTACT.titular}, con domicilio en Málaga. Contacto: ${CONTACT.email}. Datos fiscales: ${CONTACT.nif}.</p><p>Los ejemplos de esta web son ficticios y sirven solo para mostrar el tipo de trabajo que se ofrece. Los precios indicados no incluyen IVA.</p>`,
+ privacidad:`<h3>Privacidad</h3><p>Esta web no tiene formularios ni instala cookies. Si me escribes por WhatsApp o me llamas, usaré tus datos solo para responderte y preparar tu presupuesto.</p><p>Puedes pedir que borre tus datos por ${CONTACT.email}.</p>`};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-legal]');if(!t)return;document.getElementById('legalbody').innerHTML=L[t.dataset.legal];document.getElementById('legal').showModal()});
+</script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cafetería El Madrugador · Ejemplo de web para cafetería</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Desayunos desde las 5:00, bocadillos gigantes y cocina casera de lunes a viernes en Málaga. 4,8 en Google.">
+<meta name="theme-color" content="#141414">
+<meta property="og:title" content="Cafetería El Madrugador · Ejemplo de web para cafetería">
+<meta property="og:description" content="Desayunos desde las 5:00, bocadillos gigantes y cocina casera de lunes a viernes en Málaga. 4,8 en Google.">
+<meta property="og:type" content="restaurant">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Restaurant", "name": "Cafetería El Madrugador", "servesCuisine": ["Desayunos", "Bocadillos", "Casera"], "priceRange": "€€", "telephone": "+34000000000", "acceptsReservations": "True", "address": {"@type": "PostalAddress", "streetAddress": "Calle Ejemplo, 1", "addressLocality": "Málaga", "postalCode": "29000", "addressRegion": "Andalucía", "addressCountry": "ES"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "05:00", "closes": "16:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "05:00", "closes": "16:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "05:00", "closes": "16:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "05:00", "closes": "16:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "05:00", "closes": "16:00"}]}
+</script>
+<style>
+:root{--forest:#141414;--forest-2:#1f1f1f;--moss:#2a2410;--cider:#c9a227;--amber:#ffc928;--amber-dk:#a87600;--cream:#fbf3df;--paper:#fffcf4;--ink:#161616;--muted:#626262;--line:#ece6d6;--ph1:#6b5310;--ph2:#141414;--amber-rgb:255,201,40;--cider-rgb:201,162,39;--cream-rgb:251,243,223;--forest-rgb:20,20,20;--display:'Archivo Black',Impact,sans-serif;--serif:'Instrument Serif',Georgia,serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:78px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.02;letter-spacing:-.025em}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-dk)}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;border-radius:999px;font:600 15px Inter,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .2s var(--ease),background .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
+.btn-amber{background:var(--amber);color:var(--forest);box-shadow:0 10px 30px -10px rgba(var(--amber-rgb),.7)}
+.btn-amber:hover{filter:brightness(1.08)}
+.btn-line{border:1.5px solid rgba(var(--cream-rgb),.35);color:var(--cream)}
+.btn-dark{background:var(--forest);color:var(--cream)}
+
+/* header */
+header.top{position:fixed;inset:0 0 auto 0;z-index:40;transition:background .3s,box-shadow .3s}
+header.top.solid{background:rgba(var(--forest-rgb),.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{font-family:var(--display);font-weight:800;font-size:22px;color:var(--cream);text-decoration:none;letter-spacing:-.03em}
+.brand span{color:var(--amber)}
+.menu-links{display:flex;gap:26px;font-size:14px;color:rgba(var(--cream-rgb),.8)}
+.menu-links a{text-decoration:none}
+.menu-links a:hover{color:var(--amber)}
+.h-right{display:flex;align-items:center;gap:12px}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;color:var(--cream);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:999px;white-space:nowrap}
+.live i{width:7px;height:7px;border-radius:50%;background:#55c271;box-shadow:0 0 0 4px rgba(85,194,113,.18)}
+.live.off i{background:#e0604f;box-shadow:0 0 0 4px rgba(224,96,79,.18)}
+header .btn{padding:10px 18px;font-size:14px}
+@media(max-width:860px){.menu-links,header .btn{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--forest);color:var(--cream);overflow:hidden;padding:110px 0 64px}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 50% at 85% 20%,rgba(var(--amber-rgb),.28),transparent 70%),
+  radial-gradient(50% 60% at 0% 100%,rgba(var(--cider-rgb),.25),transparent 70%)}
+.grain{position:absolute;inset:-50%;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end;width:100%}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(52px,12.5vw,104px);font-weight:800;margin:20px 0 22px}
+.hero h1 em.s{color:var(--amber);font-size:1.05em}
+.hero p.lead{font-size:clamp(17px,4.3vw,20px);color:rgba(var(--cream-rgb),.82);max-width:520px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.proof{display:flex;align-items:center;gap:14px;margin-top:36px;font-size:13.5px;color:rgba(var(--cream-rgb),.75)}
+.proof b{font-family:var(--display);font-size:30px;color:var(--cream)}
+.stars{color:var(--amber);letter-spacing:2px}
+.hero-photo{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;transform:rotate(2deg);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+@media(max-width:860px){.hero-photo{display:none}}
+.sticker{position:absolute;left:-26px;bottom:34px;z-index:3;background:var(--amber);color:var(--forest);border-radius:50%;width:118px;height:118px;display:grid;place-items:center;text-align:center;font:800 15px/1.05 var(--display);transform:rotate(-12deg);box-shadow:0 18px 40px -12px rgba(0,0,0,.5)}
+.sticker small{display:block;font:500 11px Inter,sans-serif;margin-top:4px}
+
+/* photo placeholder (para fotos reales del local) */
+.ph{position:relative;width:100%;height:100%;background:
+  radial-gradient(120% 80% at 30% 20%,rgba(var(--amber-rgb),.55),transparent 60%),
+  radial-gradient(90% 70% at 80% 90%,rgba(var(--cider-rgb),.5),transparent 60%),
+  linear-gradient(160deg,var(--ph1),var(--ph2));display:flex;align-items:flex-end;padding:16px;color:rgba(255,255,255,.85);font-size:12.5px;font-weight:500}
+.ph::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.ph span{position:relative;z-index:1;display:inline-flex;gap:6px;align-items:center;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);padding:6px 11px;border-radius:999px}
+
+/* marquee */
+.marquee{background:var(--amber);color:var(--forest);overflow:hidden;white-space:nowrap;padding:14px 0;font:700 16px var(--display);letter-spacing:-.01em}
+.marquee div{display:inline-block;animation:mq 32s linear infinite}
+.marquee b{margin:0 22px;font-weight:400}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+@media(max-width:600px){section{padding:72px 0}}
+h2{font-size:clamp(38px,8vw,68px);margin:14px 0 18px}
+.sub{color:var(--muted);font-size:17px;max-width:560px}
+
+/* stats */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:36px}}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.stat{background:var(--paper);padding:26px 22px}
+.stat b{display:block;font:800 clamp(36px,7vw,52px)/1 var(--display);letter-spacing:-.03em}
+.stat b em.s{color:var(--amber-dk)}
+.stat span{color:var(--muted);font-size:14px}
+
+/* cachopos */
+.dark{background:var(--forest);color:var(--cream)}
+.dark .sub{color:rgba(var(--cream-rgb),.7)}
+.dark .eyebrow{color:var(--amber)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:44px}
+.cc{background:var(--forest-2);border:1px solid rgba(255,255,255,.07);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s var(--ease),border-color .3s}
+.cc:hover{transform:translateY(-6px);border-color:rgba(var(--amber-rgb),.4)}
+.cc .img{aspect-ratio:4/3}
+.cc .body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cc h3{font-size:24px}
+.cc p{color:rgba(var(--cream-rgb),.7);font-size:14.5px;flex:1}
+.cc .row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.14);font-size:13.5px;color:rgba(var(--cream-rgb),.7)}
+.cc .row b{font:800 22px var(--display);color:var(--amber)}
+.badge{align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--amber);color:var(--forest);padding:4px 10px;border-radius:999px}
+
+/* menu del dia + carta */
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:28px;margin-top:44px}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.today{background:var(--cream);border-radius:26px;padding:30px;position:relative;overflow:hidden}
+.today h3{font-size:30px;margin:8px 0 18px}
+.today ol{list-style:none;display:grid;gap:14px}
+.today li{display:flex;gap:14px;align-items:baseline}
+.today li small{font:600 11px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-dk);min-width:62px}
+.price-tag{display:flex;align-items:baseline;gap:8px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.price-tag b{font:800 44px var(--display)}
+.list{display:grid;gap:4px}
+.item{display:flex;align-items:baseline;gap:12px;padding:16px 4px;border-bottom:1px solid var(--line)}
+.item h4{font:600 17px Inter,sans-serif}
+.item p{color:var(--muted);font-size:14px}
+.item .dots{flex:1;border-bottom:1.5px dotted #cfc6b1;transform:translateY(-4px)}
+.item b{font:700 18px var(--display)}
+.tabs{display:inline-flex;background:var(--cream);border-radius:999px;padding:5px;margin-bottom:10px}
+.tabs button{border:0;background:transparent;padding:10px 18px;border-radius:999px;font:600 14px Inter,sans-serif;color:var(--muted);cursor:pointer}
+.tabs button.on{background:var(--forest);color:var(--cream)}
+.hide{display:none}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:12px;margin-top:40px}
+.gallery>div{border-radius:20px;overflow:hidden}
+.gallery .a{grid-column:span 2;grid-row:span 2}
+.gallery .b{grid-column:span 2}
+@media(max-width:700px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:140px}.gallery .b{grid-column:span 2}}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:40px}
+.rv{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+.rv .stars{font-size:15px}
+.rv h3{font-size:22px;margin:10px 0 8px}
+.rv p{color:var(--muted);font-size:15px}
+.gbox{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:28px}
+.gbox b{font:800 56px/1 var(--display)}
+
+/* reservas */
+.res{background:var(--moss);color:var(--cream);position:relative;overflow:hidden}
+.res::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(var(--amber-rgb),.35),transparent 65%)}
+.res .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start}
+@media(max-width:860px){.res .wrap{grid-template-columns:1fr}}
+.res .eyebrow{color:var(--amber)}
+.res .sub{color:rgba(var(--cream-rgb),.78)}
+.perks{list-style:none;display:grid;gap:12px;margin-top:26px}
+.perks li{display:flex;gap:12px;align-items:flex-start;color:rgba(var(--cream-rgb),.88)}
+.perks li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--amber);color:var(--forest);font-weight:800;font-size:13px;display:grid;place-items:center}
+form.book{background:var(--paper);color:var(--ink);border-radius:28px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+@media(max-width:560px){form.book{grid-template-columns:1fr;padding:22px}}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+.f label{font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+.f input,.f select,.f textarea{font:16px Inter,sans-serif;padding:13px 14px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);width:100%;transition:border-color .2s,box-shadow .2s}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--cider);box-shadow:0 0 0 4px rgba(var(--cider-rgb),.15)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{flex:1;min-width:42px;padding:11px 0;border:1.5px solid var(--line);border-radius:12px;background:#fff;font:600 15px Inter,sans-serif;cursor:pointer;color:var(--ink)}
+.seg button.on{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.consent input{margin-top:3px;accent-color:var(--cider);width:18px;height:18px;flex:none}
+.consent a{color:var(--ink)}
+.send{grid-column:1/-1;background:#1f9d55;color:#fff;font-size:16px;padding:17px;border-radius:16px}
+.send:hover{background:#1a8a4a}
+.err{grid-column:1/-1;color:#c0392b;font-size:14px;font-weight:600;min-height:1em}
+
+/* faq */
+.faq{max-width:760px;margin-top:36px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font:600 18px var(--display);letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 26px/1 Inter,sans-serif;color:var(--amber-dk);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:10px;max-width:640px}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;margin-top:40px}
+@media(max-width:860px){.visit{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px}
+.card h3{font-size:24px;margin-bottom:16px}
+.hours{list-style:none}
+.hours li{display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;font-size:15px}
+.hours li.today{background:var(--forest);color:var(--cream);font-weight:600}
+.hours li.closed span:last-child{color:#c0392b}
+.hours li.today.closed span:last-child{color:var(--amber)}
+.mapbox{border-radius:24px;overflow:hidden;min-height:320px;background:var(--cream);position:relative;border:1px solid var(--line)}
+.mapbox iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+.mapgate{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:var(--muted);font-size:14px}
+.mapgate .btn{margin-top:12px}
+
+/* footer */
+footer{background:var(--forest);color:rgba(var(--cream-rgb),.7);padding:72px 0 34px;font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
+footer .brand{font-size:30px;display:inline-block;margin-bottom:12px}
+footer h4{color:var(--cream);font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--amber)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:12.5px}
+.legal button{background:none;border:0;color:inherit;font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-right:14px}
+
+/* cookie banner */
+.cookie{position:fixed;left:14px;right:14px;bottom:88px;z-index:60;max-width:440px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 24px 60px -20px rgba(0,0,0,.35);font-size:14px;color:var(--muted);transform:translateY(30px);opacity:0;pointer-events:none;transition:.4s var(--ease)}
+.cookie.show{transform:none;opacity:1;pointer-events:auto}
+.cookie b{color:var(--ink);display:block;margin-bottom:6px;font-size:15px}
+.cookie .row{display:flex;gap:8px;margin-top:14px}
+.cookie .btn{flex:1;padding:11px;font-size:14px}
+.btn-soft{background:var(--cream);color:var(--ink)}
+@media(min-width:861px){.cookie{bottom:20px}}
+
+/* legal modal */
+dialog{border:0;border-radius:24px;padding:0;max-width:620px;width:calc(100% - 28px);box-shadow:0 40px 100px -20px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(var(--forest-rgb),.6);backdrop-filter:blur(4px)}
+dialog .in{padding:30px;max-height:78vh;overflow:auto}
+dialog h3{font-size:28px;margin-bottom:14px}
+dialog p{color:var(--muted);margin-bottom:12px;font-size:15px}
+dialog .close{position:sticky;bottom:0;display:flex;justify-content:flex-end;padding:14px 20px;background:var(--paper);border-top:1px solid var(--line)}
+
+/* mobile bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(var(--forest-rgb),.94);backdrop-filter:blur(12px)}
+.bar .btn{flex:1;padding:14px}
+@media(min-width:861px){.bar{display:none}body{padding-bottom:0}}
+
+/* reveal */
+.rv-in{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv-in.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv-in{opacity:1;transform:none;transition:none}.marquee div{animation:none}html{scroll-behavior:auto}}
+.demo-note{font-size:11.5px;opacity:.55;margin-top:10px}
+
+
+.callbox{background:var(--paper);color:var(--ink);border-radius:28px;padding:30px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.callbox p{color:var(--muted);margin-bottom:14px}
+.callbox .num{font:800 clamp(34px,8vw,48px)/1 var(--display);letter-spacing:-.02em;margin:6px 0 20px}
+.callbox .btn{width:100%;background:var(--forest);color:var(--cream);font-size:16px;padding:17px}
+.sumnote{font-size:13px;color:var(--muted);margin-top:18px}
+.sticker{left:22px!important;top:22px;bottom:auto!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.price-tag{flex-wrap:wrap}
+.price-tag b{font-size:clamp(30px,8vw,44px)!important;white-space:nowrap;line-height:1}
+.item b{white-space:nowrap}
+.hours li{gap:14px}
+.hours li span:last-child{text-align:right}
+@media(max-width:420px){.hours li{font-size:14px;padding:10px 10px}}
+.rv .tag{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-dk)}
+
+</style>
+<script>if(window.self!==window.top){document.documentElement.classList.add('embed')}</script>
+<style>.embed #cookie,.embed .bar{display:none!important}.embed body>div[style*='position:fixed;top:0']{display:none!important}.embed header.top{top:0!important}</style>
+</head>
+<body>
+
+<div style="position:fixed;top:0;left:0;right:0;z-index:100;background:#111;color:#fff;font:600 12.5px Inter,sans-serif;text-align:center;padding:7px 12px">Ejemplo ficticio · <a href="../../" style="color:#ffd27a">Volver y pedir mi web</a></div><header class="top" id="top" style="top:30px">
+  <div class="wrap">
+    <a class="brand" href="#">El Madrugador<span>.</span></a>
+    <nav class="menu-links"><a href="#especialidades">Bocadillos</a><a href="#carta">Carta</a><a href="#opiniones">Opiniones</a><a href="#visitanos">Visítanos</a></nav>
+    <div class="h-right"><span class="live" id="live"><i></i><span>—</span></span><a class="btn btn-amber" href="#reservar">Reservar o encargar</a></div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--amber)">Málaga</span>
+      <h1>Desayunos<br>que <em class="s">llenan.</em></h1>
+      <p class="lead">Abrimos a las 5 de la mañana para que empieces el día con fuerza. Bocadillos gigantes, desayunos completos, guisos caseros y terraza a la sombra.</p>
+      <div class="cta">
+        <a class="btn btn-amber" href="#reservar">Reservar o encargar →</a>
+        <a class="btn btn-line" href="#especialidades">Ver bocadillos</a>
+      </div>
+      <div class="proof"><b>4,8</b><div><div class="stars">★★★★★</div>Valoraciones de ejemplo</div></div>
+    </div>
+    <div class="hero-photo rv-in">
+      <div class="ph"><span>📷 El Madrugador XXL, nuestro bocadillo XXL</span></div>
+      <div class="sticker">5:00<small>abrimos</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div>El Madrugador XXL <b>✦</b> Desayunos completos <b>✦</b> Bocadillos XXL <b>✦</b> Guiso del día <b>✦</b> Menú de mediodía <b>✦</b> Terraza a la sombra <b>✦</b> El Madrugador XXL <b>✦</b> Desayunos completos <b>✦</b> Bocadillos XXL <b>✦</b> Guiso del día <b>✦</b> Menú de mediodía <b>✦</b> Terraza a la sombra <b>✦</b> </div></div>
+
+<section>
+  <div class="wrap about">
+    <div class="rv-in">
+      <span class="eyebrow">La casa</span>
+      <h2>Para los que<br><em class="s">madrugan.</em></h2>
+      <p class="sub">Abrimos antes que nadie para que desayunes bien antes del trabajo. Y a mediodía, menú y platos caseros. Encarga tus bocadillos y recógelos al pasar.</p>
+    </div>
+    <div class="stats rv-in"><div class="stat"><b>5:00</b><span>abrimos de lunes a viernes</span></div><div class="stat"><b>XXL</b><span>bocadillos de verdad</span></div><div class="stat"><b>🌳</b><span>terraza a la sombra</span></div></div>
+  </div>
+</section>
+
+<section class="dark" id="especialidades">
+  <div class="wrap">
+    <span class="eyebrow">Los protagonistas</span>
+    <h2>Nuestros <em class="s">bocadillos</em></h2>
+    <p class="sub">En pan recién hecho y bien cargados. El Madrugador XXL es leyenda en tu barrio.</p>
+    <div class="cards"><article class="cc rv-in"><div class="img"><div class="ph"><span>📷 El Madrugador XXL</span></div></div><div class="body"><span class="badge">Leyenda</span><h3>El Madrugador XXL</h3><p>Nuestro bocadillo estrella: enorme, bien relleno y de calidad. No vas a ver otro igual.</p><div class="row"><span>Bocadillo XXL</span><b>7,50 €</b></div></div></article><article class="cc rv-in"><div class="img"><div class="ph"><span>📷 Lomo con queso</span></div></div><div class="body"><h3>Lomo con queso</h3><p>El clásico de siempre en pan recién hecho.</p><div class="row"><span>Bocadillo</span><b>4,50 €</b></div></div></article><article class="cc rv-in"><div class="img"><div class="ph"><span>📷 Tortilla de patatas</span></div></div><div class="body"><h3>Tortilla de patatas</h3><p>Tortilla casera, jugosa, en bocadillo o en pincho.</p><div class="row"><span>Bocadillo</span><b>4 €</b></div></div></article><article class="cc rv-in"><div class="img"><div class="ph"><span>📷 Desayuno completo</span></div></div><div class="body"><span class="badge">Madrugadores</span><h3>Desayuno completo</h3><p>Café, zumo y tostada o bollería para arrancar el día.</p><div class="row"><span>Combo</span><b>4,50 €</b></div></div></article></div>
+  </div>
+</section>
+
+<section id="carta">
+  <div class="wrap">
+    <span class="eyebrow">Cada día</span>
+    <h2>Menú del día<br>y <em class="s">carta</em></h2>
+    <div class="split">
+      <div class="today rv-in">
+        <span class="eyebrow">De lunes a viernes</span>
+        <h3>Tenemos menú del día</h3>
+        <ol><li><small>Primero</small><span>Plato de cuchara o entrante casero</span></li><li><small>Segundo</small><span>Carne o pescado, cocinado cada día</span></li><li><small>Postre</small><span>Postre o fruta</span></li></ol>
+        <p style="color:var(--muted);font-size:14.5px;margin-top:16px">Cambia cada día. Pregúntanos qué hay hoy.</p>
+        <div class="price-tag"><b>11 €</b><span>bebida incluida</span></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn btn-dark" href="#demo" target="_blank" rel="noopener">💬 ¿Qué hay hoy?</a></div>
+      </div>
+      <div class="rv-in">
+        <div class="tabs" role="tablist"><button class="on" data-t="t0">Desayunos</button><button class="" data-t="t1">Bocadillos</button><button class="" data-t="t2">Mediodía</button></div>
+        <div class="list" data-g="t0"><div class="item"><div><h4>Tostada + café</h4><p>Tomate, aceite, mantequilla…</p></div><span class="dots"></span><b>2,80 €</b></div><div class="item"><div><h4>Desayuno completo</h4><p>Café, zumo y tostada o bollería</p></div><span class="dots"></span><b>4,50 €</b></div><div class="item"><div><h4>Pitufo mixto</h4><p>Jamón york y queso</p></div><span class="dots"></span><b>2,50 €</b></div></div><div class="list hide" data-g="t1"><div class="item"><div><h4>El Madrugador XXL</h4><p>El XXL de la casa</p></div><span class="dots"></span><b>7,50 €</b></div><div class="item"><div><h4>Lomo con queso</h4><p>Pan recién hecho</p></div><span class="dots"></span><b>4,50 €</b></div><div class="item"><div><h4>Tortilla</h4><p>Casera</p></div><span class="dots"></span><b>4,00 €</b></div></div><div class="list hide" data-g="t2"><div class="item"><div><h4>Guiso del día</h4><p>Cocina de cuchara</p></div><span class="dots"></span><b>8,00 €</b></div><div class="item"><div><h4>Menú del día</h4><p>Primero, segundo y postre</p></div><span class="dots"></span><b>11,00 €</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">Galería</span>
+    <div class="gallery"><div class="a rv-in"><div class="ph"><span>📷 El Madrugador XXL</span></div></div><div class="rv-in"><div class="ph"><span>📷 Desayuno completo</span></div></div><div class="rv-in"><div class="ph"><span>📷 La terraza</span></div></div><div class="b rv-in"><div class="ph"><span>📷 La barra a primera hora</span></div></div></div>
+  </div>
+</section>
+
+<section style="background:var(--cream)" id="opiniones">
+  <div class="wrap">
+    <span class="eyebrow">Opiniones</span>
+    <h2>Lo que dicen<br>quienes <em class="s">repiten</em></h2>
+    <div class="gbox"><b>4,8</b><div><div class="stars" style="font-size:20px">★★★★★</div><span style="color:var(--muted)">Valoraciones de ejemplo</span></div></div>
+    <div class="reviews"><div class="rv rv-in"><span class="tag">Ejemplo de opinión</span><h3>Bocadillos espectaculares</h3><p>El Madrugador XXL es el favorito: grande, sabroso y de calidad.</p></div><div class="rv rv-in"><span class="tag">Ejemplo de opinión</span><h3>Personal encantador</h3><p>Atención amable y cercana desde primera hora de la mañana.</p></div><div class="rv rv-in"><span class="tag">Ejemplo de opinión</span><h3>Buen precio</h3><p>Desayunos completos y raciones generosas a precios razonables.</p></div></div>
+    <p class="sumnote">Ejemplo: aquí irían las opiniones reales de tus clientes en Google.</p>
+  </div>
+</section>
+
+<section class="res" id="reservar">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Reservas y encargos</span>
+      <h2>Reserva <em class="s">o encarga</em></h2>
+      <p class="sub">Reserva mesa para el almuerzo o encarga tus bocadillos para recogerlos al pasar. Te confirmamos por WhatsApp.</p>
+      <ul class="perks"><li>Encargos de bocadillos para el trabajo.</li><li>Mesa en la terraza a la sombra.</li><li>Confirmación rápida por WhatsApp.</li></ul>
+    </div>
+    <form class="book" id="book" novalidate>
+      <div class="f"><label for="rn">Nombre</label><input id="rn" autocomplete="name" placeholder="Tu nombre"></div>
+      <div class="f"><label for="rt">Teléfono</label><input id="rt" type="tel" autocomplete="tel" placeholder="600 000 000"></div>
+      <div class="f"><label for="rd">Día</label><input id="rd" type="date"></div>
+      <div class="f"><label for="rh">Hora</label><select id="rh"></select></div>
+      <div class="f full"><label>Personas</label><div class="seg" id="ppl"><button type="button">1</button><button type="button" class="on">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">6</button><button type="button">7+</button></div></div>
+      <div class="f full"><label for="rpick">Tipo de pedido</label><select id="rpick"><option value="">Reserva de mesa</option><option>Encargo para recoger</option></select></div>
+      <div class="f full"><label for="rc">Comentarios (opcional)</label><textarea id="rc" rows="2" placeholder="Ej.: 4 bocadillos XXL para recoger a las 9:00"></textarea></div>
+      <label class="consent"><input type="checkbox" id="rok"><span>He leído y acepto la <a href="#" data-legal="privacidad">política de privacidad</a>. Usaremos tus datos solo para gestionar la reserva.</span></label>
+      <div class="err" id="rerr"></div>
+      <button class="btn send" type="submit">💬 Enviar reserva por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Preguntas frecuentes</span>
+    <h2>Antes de <em class="s">venir</em></h2>
+    <div class="faq"><details><summary>¿A qué hora abrís?</summary><p>De lunes a viernes desde las 5:00 de la mañana hasta las 16:00. Fines de semana cerramos.</p></details><details><summary>¿Se pueden encargar bocadillos?</summary><p>Sí. Usa el formulario o escríbenos por WhatsApp y los tienes listos al pasar.</p></details><details><summary>¿Tenéis menú del día?</summary><p>Sí, de lunes a viernes a mediodía. Pregúntanos qué hay hoy.</p></details><details><summary>¿Tenéis terraza?</summary><p>Sí, una terraza a la sombra para desayunar tranquilo.</p></details></div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="visitanos">
+  <div class="wrap">
+    <span class="eyebrow">Visítanos</span>
+    <h2>Horario y <em class="s">ubicación</em></h2>
+    <div class="visit">
+      <div class="card">
+        <h3>Horario</h3>
+        <ul class="hours" id="hours"></ul>
+        <p style="margin-top:18px;color:var(--muted);font-size:14.5px">Calle Ejemplo, 1<br>Málaga</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+          <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=M%C3%A1laga" target="_blank" rel="noopener">🧭 Cómo llegar</a>
+          <a class="btn btn-soft" href="#demo">📞 600 00 00 00</a>
+        </div>
+      </div>
+      <div class="mapbox" id="mapbox">
+        <div class="mapgate" id="mapgate"><div>🗺️<br>El mapa de Google usa cookies.<br><button class="btn btn-dark" id="loadmap" type="button">Cargar mapa</button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a class="brand" href="#">El Madrugador<span>.</span></a><p>Ejemplo ficticio de web para una cafetería de desayunos.</p></div>
+      <div><h4>Contacto</h4><ul><li><a href="#demo">600 00 00 00</a></li><li><a href="#demo" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+      <div><h4>Horario</h4><ul><li>Lunes a viernes · 5:00–16:00</li><li>Sábados y domingos · cerrado</li></ul></div>
+    </div>
+    <div class="legal">
+      <div><button data-legal="aviso">Aviso legal</button><button data-legal="privacidad">Privacidad</button><button data-legal="cookies">Cookies</button></div>
+      <span>© <span id="yr"></span> Cafetería El Madrugador</span>
+    </div>
+    <p class="demo-note">Diseño de ejemplo · precios, carta y textos legales provisionales.</p>
+  </div>
+</footer>
+
+<div class="bar"><a class="btn btn-amber" href="#reservar">📅 Encargar</a><a class="btn btn-line" href="#demo">📞 Llamar</a></div>
+
+<div class="cookie" id="cookie" role="dialog" aria-label="Cookies">
+  <b>🍪 Usamos cookies</b>
+  Solo las necesarias para que la web funcione y, si aceptas, las del mapa de Google. <a href="#" data-legal="cookies" style="color:var(--ink)">Más información</a>
+  <div class="row"><button class="btn btn-soft" id="ckno" type="button">Rechazar</button><button class="btn btn-dark" id="ckok" type="button">Aceptar</button></div>
+</div>
+
+<dialog id="legal"><div class="in" id="legalbody"></div><div class="close"><button class="btn btn-dark" type="button" onclick="this.closest('dialog').close()">Cerrar</button></div></dialog>
+
+<script>
+const H={"0": [], "1": [[5, 16]], "2": [[5, 16]], "3": [[5, 16]], "4": [[5, 16]], "5": [[5, 16]], "6": []};
+const SLOTFROM=6, WA="34000000000", NAME="Cafeter\u00eda El Madrugador", PICK="Tipo de pedido";
+const N=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+const fmt=t=>{t=t%24;return `${Math.floor(t)}:${t%1?'30':'00'}`};
+const now=new Date(), d=now.getDay(), h=now.getHours()+now.getMinutes()/60;
+const $=id=>document.getElementById(id);
+$('yr').textContent=now.getFullYear();
+const hdr=$('top');const onScroll=()=>hdr.classList.toggle('solid',scrollY>40);addEventListener('scroll',onScroll,{passive:true});onScroll();
+const cur=H[d].find(x=>h>=x[0]&&h<x[1]);
+const live=$('live');live.classList.toggle('off',!cur);
+live.lastElementChild.textContent=cur?`Abierto · hasta las ${fmt(cur[1])}`:'Cerrado ahora';
+const ul=$('hours');
+[1,2,3,4,5,6,0].forEach(i=>{const r=H[i],li=document.createElement('li');
+  li.innerHTML=`<span>${N[i]}</span><span>${r.length?r.map(x=>fmt(x[0])+' – '+fmt(x[1])).join(' · '):'Cerrado'}</span>`;
+  if(!r.length)li.classList.add('closed'); if(i===d)li.classList.add('today'); ul.appendChild(li);});
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.list').forEach(g=>g.classList.toggle('hide',g.dataset.g!==b.dataset.t));}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv-in').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const ck=$('cookie');
+function loadMap(){const box=$('mapbox');if(box.querySelector('iframe'))return;const g=$('mapgate');if(g)g.remove();
+  const f=document.createElement('iframe');f.loading='lazy';f.title='Mapa';
+  f.src='https://maps.google.com/maps?q=M%C3%A1laga&z=16&output=embed';box.appendChild(f);}
+const choice=store.get('ck');
+if(choice==='ok')loadMap(); else if(!choice)setTimeout(()=>ck.classList.add('show'),900);
+$('ckok').onclick=()=>{store.set('ck','ok');ck.classList.remove('show');loadMap()};
+$('ckno').onclick=()=>{store.set('ck','no');ck.classList.remove('show')};
+$('loadmap').onclick=()=>{store.set('ck','ok');ck.classList.remove('show');loadMap()};
+const L={
+ aviso:`<h3>Aviso legal</h3><p>En cumplimiento de la Ley 34/2002 de Servicios de la Sociedad de la Información, se informa de que este sitio web pertenece a [NOMBRE DEL TITULAR], con NIF [NIF], domicilio en Calle Ejemplo, 1, 29000 Málaga, y teléfono 600 00 00 00.</p><p>Los contenidos de esta web tienen carácter informativo. Los precios pueden variar sin previo aviso; prevalecen los indicados en el establecimiento.</p>`,
+ privacidad:`<h3>Política de privacidad</h3><p><b>Responsable:</b> [NOMBRE DEL TITULAR], NIF [NIF].</p><p><b>Finalidad:</b> gestionar las reservas y responder a las consultas que nos envíes.</p><p><b>Legitimación:</b> tu consentimiento al enviar el formulario.</p><p><b>Conservación:</b> los datos se conservan solo el tiempo necesario para gestionar la reserva.</p><p><b>Derechos:</b> puedes solicitar el acceso, rectificación o supresión de tus datos escribiendo a [EMAIL], y reclamar ante la Agencia Española de Protección de Datos.</p>`,
+ cookies:`<h3>Política de cookies</h3><p>Esta web solo usa almacenamiento técnico para recordar tu elección sobre las cookies. Si aceptas, se carga el mapa de Google Maps, que instala sus propias cookies según la política de Google.</p><p>Puedes cambiar tu elección borrando los datos de este sitio en tu navegador.</p>`};
+const dlg=$('legal');
+document.addEventListener('click',e=>{const t=e.target.closest('[data-legal]');if(!t)return;e.preventDefault();$('legalbody').innerHTML=L[t.dataset.legal];dlg.showModal();});
+const form=$('book');
+if(form){
+  const rd=$('rd'),rh=$('rh'),err=$('rerr');
+  const slots=day=>{const o=[];H[day].forEach(([a,b])=>{for(let t=Math.max(a,SLOTFROM);t<=b-1;t+=.5)o.push(fmt(t))});return o};
+  const iso=x=>`${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,'0')}-${String(x.getDate()).padStart(2,'0')}`;
+  let first=new Date();for(let k=0;k<7&&!slots(first.getDay()).length;k++)first.setDate(first.getDate()+1);
+  rd.min=iso(new Date());rd.value=iso(first);
+  const fill=()=>{rh.innerHTML='';const s=slots(new Date(rd.value+'T12:00').getDay());
+    if(!s.length){rh.add(new Option('Cerrado ese día',''));rh.disabled=true;return}
+    rh.disabled=false;s.forEach(x=>rh.add(new Option(x,x)))};
+  rd.addEventListener('change',fill);fill();
+  let people='2';
+  document.querySelectorAll('#ppl button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#ppl button').forEach(x=>x.classList.toggle('on',x===b));people=b.textContent;}));
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=$('rn').value.trim(),tel=$('rt').value.trim(),c=$('rc').value.trim(),pk=$('rpick')?$('rpick').value:'';
+    if(!n||!tel){err.textContent='Pon tu nombre y teléfono, por favor.';return}
+    if(!rh.value){err.textContent='Ese día está cerrado, elige otro.';return}
+    if(!$('rok').checked){err.textContent='Acepta la política de privacidad para continuar.';return}
+    err.textContent='';
+    const f=new Date(rd.value+'T12:00').toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});
+    const msg=`Hola, quiero reservar en ${NAME}:\n• Nombre: ${n}\n• Día: ${f}\n• Hora: ${rh.value}\n• Personas: ${people}\n• Teléfono: ${tel}`+(pk?`\n• ${PICK}: ${pk}`:'')+(c?`\n• Comentarios: ${c}`:'');
+    demoToast();
+  });
+}
+</script>
+<div id="dtoast" style="position:fixed;left:50%;bottom:96px;transform:translateX(-50%);z-index:200;background:#111;color:#fff;padding:12px 18px;border-radius:14px;font:500 14px Inter,sans-serif;display:none;max-width:90vw;text-align:center">Es una demo: en tu web, aquí irían tu teléfono y tu WhatsApp.</div>
+<script>function demoToast(){const t=document.getElementById('dtoast');t.style.display='block';clearTimeout(window._dt);window._dt=setTimeout(()=>t.style.display='none',2600)}
+document.addEventListener('click',e=>{const a=e.target.closest('a[href="#demo"]');if(a){e.preventDefault();demoToast()}});</script></body>
+</html>
