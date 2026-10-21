@@ -315,8 +315,9 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
 const L={
  aviso:`<h3>Aviso legal</h3><p>Este sitio web pertenece a ${CONTACT.titular}, con domicilio en Málaga. Contacto: ${CONTACT.email}. Datos fiscales: ${CONTACT.nif}.</p><p>Los ejemplos de esta web son ficticios y sirven solo para mostrar el tipo de trabajo que se ofrece. Los precios indicados no incluyen IVA.</p>`,
- privacidad:`<h3>Privacidad</h3><p>Esta web no tiene formularios ni instala cookies. Si me escribes por WhatsApp o me llamas, usaré tus datos solo para responderte y preparar tu presupuesto.</p><p>Puedes pedir que borre tus datos por ${CONTACT.email}.</p>`};
+ privacidad:`<h3>Privacidad</h3><p>Esta web no tiene formularios ni instala cookies. Para saber cuántas visitas recibe uso GoatCounter, un contador anónimo que no usa cookies ni guarda datos que te identifiquen. Si me escribes por WhatsApp o me llamas, usaré tus datos solo para responderte y preparar tu presupuesto.</p><p>Puedes pedir que borre tus datos por ${CONTACT.email}.</p>`};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-legal]');if(!t)return;document.getElementById('legalbody').innerHTML=L[t.dataset.legal];document.getElementById('legal').showModal()});
 </script>
+<!--gc--><script>if(window.self===window.top){var g=document.createElement('script');g.async=true;g.src='https://gc.zgo.at/count.js';g.dataset.goatcounter='https://vitrinamalaga.goatcounter.com/count';document.body.appendChild(g);}</script>
 </body>
 </html>
