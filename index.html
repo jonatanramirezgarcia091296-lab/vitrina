@@ -115,6 +115,12 @@ h2 em.s{color:var(--lime-dk)}
 .plan li{display:flex;gap:10px;font-size:15px}
 .plan li::before{content:"✓";color:var(--lime-dk);font-weight:800}
 .plan.hot li::before{color:var(--lime)}
+.pack{margin-top:22px;background:var(--ink);color:#fff;border-radius:28px;padding:28px 30px;display:grid;gap:22px;align-items:center;grid-template-columns:1.4fr 1fr}
+.pack h3{font-size:24px;margin:8px 0}.pack p{color:rgba(255,255,255,.82);font-size:15.5px}.pack .note{color:rgba(255,255,255,.6);font-size:13.5px;margin-top:8px}
+.pk-tag{display:inline-block;background:var(--lime);color:var(--ink);font:700 12px Inter,sans-serif;padding:5px 12px;border-radius:999px}
+.pack .pr{font:800 52px/1 var(--display);letter-spacing:-.04em}.pack .pr small{font:500 16px Inter,sans-serif;letter-spacing:0;opacity:.7}
+.pk-then{margin:6px 0 16px;font-size:16px;color:var(--lime)}.pk-r{text-align:left}
+@media(max-width:760px){.pack{grid-template-columns:1fr;padding:24px}}
 .offer{margin-top:22px;background:var(--lime);border-radius:22px;padding:20px 24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
 .offer b{font:700 20px var(--display)}
 
@@ -246,6 +252,13 @@ dialog .close{display:flex;justify-content:flex-end;padding:14px 20px;border-top
       <div class="plan rv"><h3>Mantenimiento completo</h3><div class="pr">150 €<small> /mes</small></div><p class="note">+ IVA · sin permanencia</p>
         <ul><li>Todo lo del básico</li><li>Redes sociales: 3–4 publicaciones a la semana</li><li>Respuesta a las reseñas de Google</li><li>Informe mensual de llamadas y reservas</li></ul>
         <a class="btn btn-dark js-wa" href="#contacto">Hablemos</a></div>
+    </div>
+    <div class="pack rv">
+      <div class="pk-l"><span class="pk-tag">Pack ahorro</span><h3>Web + Mantenimiento básico</h3>
+        <p>Tu web hecha y publicada, con el primer mes de mantenimiento incluido. Después, solo <b>30 €/mes</b> para tenerla siempre al día.</p>
+        <p class="note">+ IVA · sin permanencia · te ahorras 10 € frente a contratarlo por separado</p></div>
+      <div class="pk-r"><div class="pr">170 €<small> al empezar</small></div><div class="pk-then">y después <b>30 €/mes</b></div>
+        <a class="btn btn-lime js-wa" href="#contacto">Quiero el pack</a></div>
     </div>
     <div class="offer rv"><b>🎁 Web a mitad de precio si contratas 12 meses de mantenimiento.</b><a class="btn btn-dark js-wa" href="#contacto">Me interesa</a></div>
   </div>
